@@ -106,3 +106,6 @@ let pos = fruits.indexOf("Banana");
 // Remove an item by index position
 let removedItem = fruits.splice(pos, 1); // this is how to remove an item
 // ["Strawberry", "Banana", "Mango"] ---> ["Strawberry", "Mango"]
+
+//
+// More -> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
