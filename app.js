@@ -9,6 +9,17 @@ const business = [
   { name: "Silverstar", category: "Technology", start: 2011, revenue: 21 },
   { name: "Ravenworks", category: "Retail", start: 1981, revenue: 19 },
 ];
+const businessRevenue = [
+  { name: "Prime", revenue: 24 },
+  { name: "Marspoint", revenue: 28 },
+  { name: "Aces", revenue: 17 },
+  { name: "Hurricane Lighting", revenue: 10 },
+  { name: "Eclipse", revenue: 11 },
+  { name: "Globestar", revenue: 16 },
+  { name: "Vertex", revenue: 16 },
+  { name: "Silverstar", revenue: 21 },
+  { name: "Ravenworks", revenue: 19 },
+];
 
 //Filter Methods | Array.prototype.filter() -------------------------
 // The filter() method creates a new array with all elements that pass the test implemented by the provided function.
@@ -41,7 +52,7 @@ business.forEach((e) => {
 // Some Method -------------------------
 // The some() method tests whether at least one element in the array passes the test implemented by the provided function. It returns a Boolean value.
 const someTypes = business.some((e) => {
-  return e.start >= 2019;
+  return e.start >= 2011;
 });
 console.log("someTypes", someTypes);
 
@@ -62,50 +73,13 @@ console.log("revenueTotal", revenueTotal);
 
 // Includes Method -------------------------
 //The includes() method determines whether an array contains a specified element. Returning true or false as appropriate.
-const includesTypes = business.includes(1);
+const includesTypes = business.includes(business.category);
 console.log("revenueTotal", includesTypes);
 
-//---------------------------------------------------------------------------
-// Common operations
-//---------------------------------------------------------------------------
+// Sort Method -------------------------
+//The sort() method sorts the elements of an array in place and returns the sorted array. The default sort order is ascending
+const sortCategory = business.sort((c1, c2) => (c1.category > c2.category ? 1 : -1));
+console.log(sortCategory);
 
-// Access an Array item using the index position
-let first = fruits[0];
-// Apple
-let last = fruits[fruits.length - 1];
-// Banana
-
-//---------------------------------------------------------------------------
-// Add an item to the end of an Array
-let newLength = fruits.push("Orange");
-// ["Apple", "Banana", "Orange"]
-
-//---------------------------------------------------------------------------
-// Remove an item from the end of an Array
-let last = fruits.pop(); // remove Orange (from the end)
-// ["Apple", "Banana"]
-
-//---------------------------------------------------------------------------
-// Remove an item from the beginning of an Array
-let first = fruits.shift(); // remove Apple from the front
-// ["Banana"]
-
-//---------------------------------------------------------------------------
-// Add an item to the beginning of an Array
-let newLength = fruits.unshift("Strawberry"); // add to the front
-// ["Strawberry", "Banana"]
-
-//---------------------------------------------------------------------------
-// Find the index of an item in the Array
-fruits.push("Mango");
-// ["Strawberry", "Banana", "Mango"]
-let pos = fruits.indexOf("Banana");
-// 1
-
-//---------------------------------------------------------------------------
-// Remove an item by index position
-let removedItem = fruits.splice(pos, 1); // this is how to remove an item
-// ["Strawberry", "Banana", "Mango"] ---> ["Strawberry", "Mango"]
-
-//
-// More -> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+const sortRevenue = businessRevenue.sort((c1, c2) => c2.revenue - c1.revenue).map((e) => `${e.name} Revenue: $${e.revenue}M`);
+console.log(sortRevenue);
