@@ -31,7 +31,7 @@ let keys = Array.from(map.keys()); // convert to an array using Array.from
 
 keys.push('more');
 
-console.log(keys);
+console.log(map);
 
 // That’s because map.keys() returns an iterable, but not an array.
 
